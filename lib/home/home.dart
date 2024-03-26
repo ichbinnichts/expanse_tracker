@@ -37,13 +37,21 @@ class _HomeState extends State<Home> {
     )
   ];
 
+  void _openAddExpensesOverlay() {
+    showModalBottomSheet(
+        context: context, builder: (ctx) => const Text('Modal bottom sheet'));
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Expense tracker'),
         backgroundColor: Colors.blue,
-        actions: [IconButton(onPressed: () {}, icon: const Icon(Icons.add))],
+        actions: [
+          IconButton(
+              onPressed: _openAddExpensesOverlay, icon: const Icon(Icons.add))
+        ],
       ),
       body: Column(
         children: [
