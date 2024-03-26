@@ -18,3 +18,5 @@ samples, guidance on mobile development, and a full API reference.
 ## Dependencies
 
 flutter pub add uuid
+<br/>
+flutter pub add intl
