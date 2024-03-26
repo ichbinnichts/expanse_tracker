@@ -10,6 +10,13 @@ class Home extends StatefulWidget {
 class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
-    return const Scaffold();
+    return const Scaffold(
+      body: Column(
+        children: [
+          Text('The chart'),
+          Text('Expenses list...'),
+        ],
+      ),
+    );
   }
 }
