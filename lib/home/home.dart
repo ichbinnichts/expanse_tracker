@@ -40,8 +40,14 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: const Text('Expense tracker'),
+        backgroundColor: Colors.blue,
+        actions: [IconButton(onPressed: () {}, icon: const Icon(Icons.add))],
+      ),
       body: Column(
         children: [
+          const SizedBox(height: 20),
           const Text('The chart'),
           Expanded(
             child: ExpensesList(expenses: _registeredExpenses),
