@@ -24,23 +24,20 @@ class _HomeState extends State<Home> {
       date: DateTime.now(),
       category: Category.work,
     ),
-    Expense(
-      title: 'Fast food',
-      amount: 35.99,
-      date: DateTime.now(),
-      category: Category.food,
-    ),
-    Expense(
-      title: 'Book',
-      amount: 15.99,
-      date: DateTime.now(),
-      category: Category.leisure,
-    )
   ];
 
   void _openAddExpensesOverlay() {
     showModalBottomSheet(
-        context: context, builder: (ctx) => const NewExpense());
+        context: context,
+        builder: (ctx) => NewExpense(
+              onAddExpense: _addExpense,
+            ));
+  }
+
+  void _addExpense(Expense expense) {
+    setState(() {
+      _registeredExpenses.add(expense);
+    });
   }
 
   @override
