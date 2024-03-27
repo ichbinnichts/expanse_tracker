@@ -28,6 +28,7 @@ class _HomeState extends State<Home> {
 
   void _openAddExpensesOverlay() {
     showModalBottomSheet(
+        isScrollControlled: true,
         context: context,
         builder: (ctx) => NewExpense(
               onAddExpense: _addExpense,
