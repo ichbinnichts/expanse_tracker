@@ -1,3 +1,4 @@
+import 'package:expanse_tracker/widgets/chart/chart.dart';
 import 'package:expanse_tracker/widgets/expense/expenses_list.dart';
 import 'package:expanse_tracker/models/expense.dart';
 import 'package:expanse_tracker/widgets/new_expense.dart';
@@ -85,7 +86,7 @@ class _HomeState extends State<Home> {
       body: Column(
         children: [
           const SizedBox(height: 20),
-          const Text('The chart'),
+          Chart(expenses: _registeredExpenses),
           Expanded(
             child: mainContent,
           ),
