@@ -63,6 +63,8 @@ class _HomeState extends State<Home> {
 
   @override
   Widget build(BuildContext context) {
+    final double width = MediaQuery.of(context).size.width;
+
     Widget mainContent = const Center(
       child: Text('No expenses found.'),
     );
@@ -83,15 +85,25 @@ class _HomeState extends State<Home> {
               onPressed: _openAddExpensesOverlay, icon: const Icon(Icons.add))
         ],
       ),
-      body: Column(
-        children: [
-          const SizedBox(height: 20),
-          Chart(expenses: _registeredExpenses),
-          Expanded(
-            child: mainContent,
-          ),
-        ],
-      ),
+      body: width < 600
+          ? Column(
+              children: [
+                const SizedBox(height: 20),
+                Chart(expenses: _registeredExpenses),
+                Expanded(
+                  child: mainContent,
+                ),
+              ],
+            )
+          : Row(
+              children: [
+                const SizedBox(height: 20),
+                Expanded(child: Chart(expenses: _registeredExpenses)),
+                Expanded(
+                  child: mainContent,
+                ),
+              ],
+            ),
     );
   }
 }
